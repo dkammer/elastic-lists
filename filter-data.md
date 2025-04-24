@@ -1,7 +1,8 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
+---
+layout: default
+---
 
-<body class="container">
+<div class="container">
 	<br/>
 	<div class="row" id="main"></div>
 	<script src="vendors/jquery/dist/jquery.min.js"></script>
@@ -10,4 +11,4 @@
 	<script src="filter-data.js"></script>
 	<link href="css/main.css" rel="stylesheet">
 	<link href="elastic-list.css" rel="stylesheet">
-</body>
+</div>

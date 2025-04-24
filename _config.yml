@@ -1,0 +1,25 @@
+title: Elastic List Demo
+email: kammer@htw-dresden.de
+description: >-
+    Demo of elastic lists
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+theme: minima
+# permalink: pretty
+
+exclude:
+    - Gemfile
+    - Gemfile.lock
+    - node_modules
+    - vendor/bundle/
+    - vendor/cache/
+    - vendor/gems/
+    - vendor/ruby/
+    - .gitignore
+    - .git
+    - .nvm
+    - docker-compose.yml
+    - LICENSE
+    - README.md

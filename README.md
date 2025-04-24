@@ -211,3 +211,8 @@ view.clean();
 
 If you've found a bug or have a great idea for new feature let me know by [adding your suggestion]
 (http://github.com/mbaez/elastic-lists/issues/new) to [issues list](https://github.com/mbaez/elastic-lists/issues).
+
+## Development
+
+Install Grunt: `npm install -g grunt-cli` and compile with `grunt`.
+

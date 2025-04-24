@@ -19,6 +19,7 @@ $list-bg:white;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
+			margin-top: -15px;
 		}
 		div {
 			display: block;
@@ -43,3 +44,8 @@ $list-bg:white;
 .elastic-filter {
 	width: 100%;
 }
+
+.badge {
+	color: black !important;
+	text-align: right;
+  }

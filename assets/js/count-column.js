@@ -3,7 +3,23 @@ $(function () {
         el: $("#main"),
         data: dataCount,
         onchange: function (filters) {
-            console.info(filters);
+            const resultsContainer = document.getElementById('results-row');
+            resultsContainer.innerHTML = '';
+
+            if (Object.keys(filters).length === 0) {
+                return;
+            }
+
+            const filtered = dataCount.filter(item =>
+                Object.entries(filters).every(([key, value]) =>
+                  String(item[key] || '').toLowerCase() === String(value).toLowerCase()
+                )
+              );
+
+            filtered.forEach(item => {
+                const domElement = createDomElementAlt(item);
+                resultsContainer.appendChild(domElement);
+            });
         },
         hasFilter: true,
         countColumn: "total",

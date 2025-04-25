@@ -23,3 +23,5 @@ exclude:
     - docker-compose.yml
     - LICENSE
     - README.md
+    - Gruntfile.js
+    - bower.json

@@ -2,9 +2,24 @@ $(function () {
     view = new ElasticList({
         el: $("#main"),
         data: dataElastic,
-        hasFilter: true,
         onchange: function (filters) {
-            console.info(filters);
+            const resultsContainer = document.getElementById('results-row');
+            resultsContainer.innerHTML = '';
+
+            if (Object.keys(filters).length === 0) {
+                return;
+            }
+            
+            const filtered = dataElastic.filter(item =>
+                Object.entries(filters).every(([key, value]) =>
+                  String(item[key] || '').toLowerCase() === String(value).toLowerCase()
+                )
+              );
+
+            filtered.forEach(item => {
+                const domElement = createDomElement(item);
+                resultsContainer.appendChild(domElement);
+            });
         },
         columns: [
             {

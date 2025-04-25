@@ -1,40 +1,71 @@
 ---
 layout: default
 ---
+<div class="container py-5">
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="lead">Elastic lists are an interactive way to explore large datasets, allowing users to filter, search,
+        and drill down into information seamlessly. They adapt dynamically to user selections, offering a flexible
+        interface for data exploration.</p>
+    </div>
+  </div>
+</div>
 
 <!-- Demos Section -->
 <section class="container py-5">
-    <div class="row g-4 justify-content-center">
-      <!-- Demo Card 1 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card border-0 bg-white h-100 shadow-sm">
-          <div class="card-body text-start">
-            <h5 class="card-title fw-semibold">Demo 1: Simple</h5>
-            <p class="card-text text-muted">Simple demo of elastic lists</p>
-            <a href="{{ 'simple' | absolute_url }}" class="btn btn-outline-primary mt-3">View Demo</a>
-          </div>
+  <div class="row g-4 justify-content-center">
+    <!-- Demo Card 1 -->
+    <div class="col-md-6 col-lg-4">
+      <a href="{{ 'simple' | absolute_url }}" class="card border-0 bg-primary text-white h-100 shadow-sm text-decoration-none">
+        <div class="card-body text-start">
+          <h5 class="card-title fw-semibold">Demo 1: Simple</h5>
+          <p class="card-text">Simple demo of elastic lists using Nobel Prize winners.</p>
         </div>
-      </div>
-      <!-- Demo Card 2 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card border-0 bg-white h-100 shadow-sm">
-          <div class="card-body text-start">
-            <h5 class="card-title fw-semibold">Demo 2: Count column</h5>
-            <p class="card-text text-muted">Includes filter header for columns and limits the shown columns</p>
-            <a href="{{ 'count-column' | absolute_url }}" class="btn btn-outline-primary mt-3">View Demo</a>
-          </div>
-        </div>
-      </div>
-      <!-- Demo Card 3 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card border-0 bg-white h-100 shadow-sm">
-          <div class="card-body text-start">
-            <h5 class="card-title fw-semibold">Demo 3: Filter data</h5>
-            <p class="card-text text-muted">Allows for filtering of the data</p>
-            <a href="{{ 'filter-data' | absolute_url }}" class="btn btn-outline-primary mt-3">View Demo</a>
-          </div>
-        </div>
-      </div>
+      </a>
     </div>
-  </section>
-  
+    <!-- Demo Card 2 -->
+    <div class="col-md-6 col-lg-4">
+      <a href="{{ 'count-column' | absolute_url }}" class="card border-0 bg-success text-white h-100 shadow-sm text-decoration-none">
+        <div class="card-body text-start">
+          <h5 class="card-title fw-semibold">Demo 2: Count column</h5>
+          <p class="card-text">Includes filter header for columns and limits the shown columns.</p>
+        </div>
+      </a>
+    </div>
+    <!-- Demo Card 3 -->
+    <div class="col-md-6 col-lg-4">
+      <a href="{{ 'filter-data' | absolute_url }}" class="card border-0 bg-info text-white h-100 shadow-sm text-decoration-none">
+        <div class="card-body text-start">
+          <h5 class="card-title fw-semibold">Demo 3: Filter data</h5>
+          <p class="card-text">Allows for filtering of the columns for the Nobel Prize winners.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col-lg-12">
+      <p>This concept is based on the work of <a href="https://truth-and-beauty.net/" target="_blank">Moritz
+          Stefaner</a>, whose research and projects explore the principles of dynamic, interactive visualizations. For
+        more on his work with elastic lists, you can refer to these papers:</p>
+
+      <p><em><a
+            href="https://ieeexplore.ieee.org/iel5/4624650/4624651/04624749.pdf?casa_token=7OuOHhN4kjQAAAAA:8lO5xtvkUB5aN3QvN32klYvp2F_-FWzfvQqK6Jul_x_7K4xMpKp70K0GH_h-V2K3qvkQZNUq"
+            target="_blank">Stefaner, M., Urban, T., & Seefelder, M. (2008, September). Elastic lists for facet browsing
+            and resource analysis in the enterprise. In 2008 19th International Workshop on Database and Expert Systems
+            Applications (pp. 397-401). IEEE.</a></em></p>
+
+      <p><em><a
+            href="https://ieeexplore.ieee.org/iel5/4312838/4312839/04312889.pdf?casa_token=kl3KWnqYZZgAAAAA:QzP_o2AJuXZRGBzvyvXJ74Njk68GxhH417rgykdD8LZgzAdBt9Oa73RaGLQkdowKZ5SnYrmV"
+            target="_blank">Stefaner, M., & Muller, B. (2007, September). Elastic lists for facet browsers. In 18th
+            International Workshop on Database and Expert Systems Applications (DEXA 2007) (pp. 217-221). IEEE.</a></em>
+      </p>
+
+      <hr>
+      <p class="small text-muted">JavaScript library for this project by <a href="https://github.com/mbaez"
+          target="_blank">Maximiliano Báez González</a></p>
+    </div>
+  </div>
+</div>

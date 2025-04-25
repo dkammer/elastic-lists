@@ -56,16 +56,16 @@ function createDomElement(data) {
     // Title (e.g., Marca)
     const title = document.createElement('h5');
     title.classList.add('card-title');
-    title.textContent = `Marca: ${data.csv_marca}`;
+    title.textContent = `Brand: ${data.csv_marca}`;
   
     // Details
     const presentacion = document.createElement('p');
     presentacion.classList.add('card-text');
-    presentacion.textContent = `Presentación: ${data.csv_presentacion}`;
+    presentacion.textContent = `Presentation: ${data.csv_presentacion}`;
   
     const modalidad = document.createElement('p');
     modalidad.classList.add('card-text');
-    modalidad.textContent = `Modalidad: ${data.csv_modalidad}`;
+    modalidad.textContent = `Modality: ${data.csv_modalidad}`;
   
     const total = document.createElement('p');
     total.classList.add('card-text');

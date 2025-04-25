@@ -130,7 +130,7 @@ ElasticBuilder.prototype.genColumnId = function (attr) {
  * @returns {type} Description
  */
 ElasticBuilder.prototype.parseValue = function (value) {
-    return value == null || typeof value == "undefined" || value.length == 0 ? "Desconocido" : value;
+    return value == null || typeof value == "undefined" || value.length == 0 ? "Unknown" : value;
 }
 
 /**
@@ -147,7 +147,7 @@ ElasticBuilder.prototype.isIn = function (node, filters) {
 }
 
 /**
- * Retorna los filtros activos de cada columna.
+ * Returns the active filters of each column.
  */
 ElasticBuilder.prototype.getFilters = function () {
     var $filters = this.el.find(".active");
@@ -161,7 +161,7 @@ ElasticBuilder.prototype.getFilters = function () {
 }
 
 /**
- * Este método se encarga de aplicar los filtros a los datos del elastic list.
+ * This method is responsible for applying the filters to the elastic list data.
  */
 ElasticBuilder.prototype.applyFilters = function ($target, undo) {
     var map = {};
@@ -171,7 +171,7 @@ ElasticBuilder.prototype.applyFilters = function ($target, undo) {
     for (var key in filters) {
         attrKey = this.getKey(key, filters[key]);
     }
-    //si no existe ningún filtro activo
+    // if no active filter exists
     if (attrKey == null) {
         this.el.find("li").removeClass(this.hideClass);
         for (var elId in this.countMap) {
@@ -211,7 +211,7 @@ ElasticBuilder.prototype.applyFilters = function ($target, undo) {
 }
 
 /**
- * Se encarga de manejar el evento on-click disparado desde una de las filas del elastic list.
+ * This method handles the on-click event triggered from one of the rows of the elastic list.
  */
 ElasticBuilder.prototype.clickHandler = function (el) {
     var thiz = this;
@@ -238,8 +238,7 @@ ElasticBuilder.prototype.clickHandler = function (el) {
 }
 
 /**
- * Si el atributo defaultValue se encuentra definido, este se pre-selecciona en la
- * lista.
+ * If the defaultValue attribute is defined, it will be pre-selected in the list.
  */
 ElasticBuilder.prototype.setSelected = function (options) {
     var args = typeof options == "undefined" ? this.defaultValue : options;
@@ -261,8 +260,8 @@ ElasticBuilder.prototype.setSelected = function (options) {
 };
 
 /**
- * Método principal que se encarga de procesar los datos y constuir los contenedores que
- * definen la lista elástica.
+ * Main method responsible for processing the data and building the containers that
+ * define the elastic list.
  * @function
  * @private
  */
@@ -302,8 +301,8 @@ ElasticBuilder.prototype.buildContainer = function () {
 }
 
 /**
- * Se encarga de obtener el total de datos aosociados a la columna.
- * Este número se pude obtener de la columna countColumn si se encuentra especificada.
+ * This method is responsible for obtaining the total data associated with the column.
+ * This number can be obtained from the countColumn if specified.
  */
 ElasticBuilder.prototype.count = function (countMap, key, node) {
     var hasCountColumn = typeof this.countColumn == "undefined" ? false : true;
@@ -316,8 +315,8 @@ ElasticBuilder.prototype.count = function (countMap, key, node) {
 }
 
 /**
- * Método principal que se encarga de procesar los datos y constuir las columnas que
- * definen la lista elástica.
+ * Main method responsible for processing the data and building the columns that
+ * define the elastic list.
  * @function
  * @private
  */
@@ -365,7 +364,7 @@ ElasticBuilder.prototype.buildList = function () {
 }
 
 /**
- * Se encarga de asociar los eventos a los componentes del elastic list
+ * Responsible for applying a specific filter.
  * @function
  * @private
  */
@@ -383,13 +382,13 @@ ElasticBuilder.prototype.bindEvents = function () {
 }
 
 /**
- * Se encarga de ocultar las filas que no coinciden con el criterio de busqueda del
- * input de filtrado de las columnas. Se utiliza CSS para ocultar/mostrar los elementos
- * debido a que es más eficiente que hide y show de jquery.
+ * Responsible for hiding the rows that do not match the search criteria from
+ * the column filter input. CSS is used to hide/show elements because it is more efficient
+ * than using jQuery's hide and show methods.
  * @function
  * @private
- * @param {Event} event referencia al objeto evento de jquery iniciado por el keyup en el input
- * de cada columna.
+ * @param {Event} event reference to the jQuery event object triggered by the keyup in the input
+ * of each column.
  */
 ElasticBuilder.prototype.findData = function (event) {
     event.stopPropagation();
@@ -414,9 +413,8 @@ ElasticBuilder.prototype.findData = function (event) {
 }
 
 /**
- * Este método se encarga de limpliar los criterios del filtrados establecidos por el input
- * de filtrado.
- * Se encarga de limpiar las reglas css establecidas en el filtrado.
+ * This method is responsible for clearing the filter criteria set by the filter input.
+ * It also clears the CSS rules established by the filtering.
  */
 ElasticBuilder.prototype.cleanFilters = function () {
     this.el.find("style").each(function () {
@@ -447,15 +445,15 @@ var ElasticList = function (options) {
 }
 
 /**
- * Retorna los filtros activos de cada columna.
+ * Returns the active filters of each column.
  */
 ElasticList.prototype.getFilters = function () {
     return this.builder.getFilters();
 }
 
 /**
- * Si el atributo defaultValue se encuentra definido, este se pre-selecciona en la
- * lista.
+ * If the defaultValue attribute is defined, it will be pre-selected in the
+ * list.
  * @param {Options} options list of selections.
  */
 ElasticList.prototype.setSelected = function (options) {

@@ -24,23 +24,24 @@ $(function () {
         },
         columns: [
             {
-                title: "País",
+                title: "Country",
                 attr: "country"
             }, {
-                title: "Genero",
+                title: "Gender",
                 attr: "gender"
             }, {
-                title: "Año",
+                title: "Year",
                 attr: "year"
             }, {
-                title: "Categoría",
+                title: "Category",
                 attr: "category"
             }, {
-                title: "Ciudad",
+                title: "City",
                 attr: 'city'
             }, {
-                title: "Universidad",
+                title: "University",
                 attr: "name"
-            }]
+            }
+        ]       
     });
 });

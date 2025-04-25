@@ -26,21 +26,21 @@ $(function () {
         align: 'horizontal',
         columns: [
             {
-                title: "Presentacion",
+                title: "Presentation",
                 attr: "csv_presentacion",
                 formatter: function (value, option) {
                     if (value == "UNI") {
-                        return "Uni formater value";
+                        return "Uni formatter value";
                     }
                     console.info(option);
                     return value;
                 }
             }, {
-                title: "Marca",
+                title: "Brand",
                 attr: "csv_marca"
             }, {
-                title: "Modalidad",
+                title: "Modality",
                 attr: "csv_modalidad"
-            }]
+            }]        
     });
 });

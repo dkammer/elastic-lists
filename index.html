@@ -2,19 +2,39 @@
 layout: default
 ---
 
-<div class="container">
-	<br/>
-	<div class="row" id="main"></div>
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-	<script src="assets/js/data.js"></script>
-	<script src="dist/elastic-list.js"></script>
-	<script src="assets/js/simple.js"></script>
-	<link href="dist/elastic-list.css" rel="stylesheet">
-</div>
-
-<div>
-    <br/>
-    <br/>
-    <a href="count-column.html">Count Column</a> | 
-    <a href="filter-data.html">Filter Data</a>
-</div>
+<!-- Demos Section -->
+<section class="container py-5">
+    <div class="row g-4 justify-content-center">
+      <!-- Demo Card 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-0 bg-white h-100 shadow-sm">
+          <div class="card-body text-start">
+            <h5 class="card-title fw-semibold">Demo 1: Simple</h5>
+            <p class="card-text text-muted">Simple demo of elastic lists</p>
+            <a href="{{ 'simple' | absolute_url }}" class="btn btn-outline-primary mt-3">View Demo</a>
+          </div>
+        </div>
+      </div>
+      <!-- Demo Card 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-0 bg-white h-100 shadow-sm">
+          <div class="card-body text-start">
+            <h5 class="card-title fw-semibold">Demo 2: Count column</h5>
+            <p class="card-text text-muted">Includes filter header for columns and limits the shown columns</p>
+            <a href="{{ 'count-column' | absolute_url }}" class="btn btn-outline-primary mt-3">View Demo</a>
+          </div>
+        </div>
+      </div>
+      <!-- Demo Card 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-0 bg-white h-100 shadow-sm">
+          <div class="card-body text-start">
+            <h5 class="card-title fw-semibold">Demo 3: Filter data</h5>
+            <p class="card-text text-muted">Allows for filtering of the data</p>
+            <a href="{{ 'filter-data' | absolute_url }}" class="btn btn-outline-primary mt-3">View Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

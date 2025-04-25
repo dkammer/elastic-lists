@@ -2,7 +2,8 @@ title: Elastic List Demo
 email: kammer@htw-dresden.de
 description: >-
     Demo of elastic lists
-baseurl: "/elastic-lists/"
+url: "https://dkammer.org"
+baseurl: "/elastic-lists"
 
 # Build settings
 markdown: kramdown

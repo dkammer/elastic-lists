@@ -22,7 +22,7 @@ $(function () {
                 resultsContainer.appendChild(domElement);
             });
         },
-
+        align: 'horizontal',
         columns: [
             {
                 title: "Place",

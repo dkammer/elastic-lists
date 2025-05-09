@@ -321,7 +321,15 @@ ElasticBuilder.prototype.count = function (countMap, key, node) {
  * @private
  */
 ElasticBuilder.prototype.buildList = function () {
-    var count = 0;
+    // Clear previous list entries
+    for (var j = 0; j < this.columns.length; j++) {
+        var attr = this.columns[j].attr;
+        this.el.find("#" + this.genColumnId(attr)).empty();
+    }
+
+    var tempLists = {};
+    var badgeMap = {}; // Track badges by elKey
+
     for (var i = 0; i < this.data.length; i++) {
         for (var j = 0; j < this.columns.length; j++) {
             var attr = this.columns[j].attr;
@@ -329,39 +337,70 @@ ElasticBuilder.prototype.buildList = function () {
             value = this.parseValue(value);
             var key = value.toString().toLowerCase();
             var elKey = this.getKey(attr, key);
-            if (typeof this.countMap[elKey] == "undefined") {
-                count = this.count(this.countMap, elKey, this.data[i]);
+
+            // Always update the count
+            var count = this.count(this.countMap, elKey, this.data[i]);
+
+            if (typeof this.grafo[elKey] === "undefined") {
                 this.grafo[elKey] = [];
-                var $ul = this.el.find("#" + this.genColumnId(attr));
+            }
+
+            if (!badgeMap[elKey]) {
+                // First time seeing this key: build element
                 var $li = $("<li class='list-group-item'></li>");
                 var $span = $("<div></div>");
-                var $badge = $span.clone();
+                var $badge = $("<div></div>");
+
                 $badge.addClass('badge');
                 $badge.attr("id", elKey);
                 $badge.text(count);
-                // adding the true value of the element
-                $li.attr("data-value", value.toString().toLowerCase());
-                // if the current column has a custom formatter
+
+                badgeMap[elKey] = $badge;
+
+                $li.attr("data-value", key);
+
                 if (typeof this.columns[j].formatter == "function") {
                     value = this.columns[j].formatter(value, this.data[i]);
                 }
-                // adding the formatted value of the string
-                tmpValue = value.toString().toLowerCase()
-                tmpValue = this.beforeSearch(tmpValue);
+
+                var tmpValue = this.beforeSearch(value.toString().toLowerCase());
                 $li.attr("data-formatted", tmpValue);
+
                 $span.text(value);
                 $span.addClass("elastic-data");
+
                 $li.append($badge);
                 $li.append($span);
-                $ul.append($li);
+
+                if (!tempLists[attr]) tempLists[attr] = [];
+                tempLists[attr].push($li);
             } else {
-                count = this.count(this.countMap, elKey, this.data[i]);
-                this.el.find("#" + elKey).text(count);
+                // Update badge count
+                badgeMap[elKey].text(count);
             }
+
             this.grafo[elKey].push(this.data[i]);
         }
     }
-}
+
+    // Sort and append
+    for (var j = 0; j < this.columns.length; j++) {
+        var attr = this.columns[j].attr;
+        var $ul = this.el.find("#" + this.genColumnId(attr));
+
+        if (tempLists[attr]) {
+            tempLists[attr].sort(function (a, b) {
+                var aVal = a.attr("data-formatted");
+                var bVal = b.attr("data-formatted");
+                return aVal.localeCompare(bVal);
+            });
+
+            tempLists[attr].forEach(function ($li) {
+                $ul.append($li);
+            });
+        }
+    }
+};
 
 /**
  * Responsible for applying a specific filter.

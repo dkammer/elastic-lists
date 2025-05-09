@@ -15,7 +15,8 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-top: -15px; }
+    margin-top: -15px;
+    padding-right: 40px; }
   .list-container .list-group-item div {
     display: block; }
 .list-container .list-group-item.active {

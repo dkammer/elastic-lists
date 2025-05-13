@@ -330,6 +330,19 @@ ElasticBuilder.prototype.buildList = function () {
     var tempLists = {};
     var badgeMap = {}; // Track badges by elKey
 
+    var maxCount = 0;
+    for (var i = 0; i < this.data.length; i++) {
+        for (var j = 0; j < this.columns.length; j++) {
+            var attr = this.columns[j].attr;
+            var value = this.data[i][attr];
+            value = this.parseValue(value);
+            var key = value.toString().toLowerCase();
+            var elKey = this.getKey(attr, key);
+            var counter = this.count(this.countMap, elKey, this.data[i]);
+            if (counter > maxCount) maxCount = counter;
+        }
+    }
+
     for (var i = 0; i < this.data.length; i++) {
         for (var j = 0; j < this.columns.length; j++) {
             var attr = this.columns[j].attr;
@@ -339,7 +352,7 @@ ElasticBuilder.prototype.buildList = function () {
             var elKey = this.getKey(attr, key);
 
             // Always update the count
-            var count = this.count(this.countMap, elKey, this.data[i]);
+            var count = this.countMap[elKey];
 
             if (typeof this.grafo[elKey] === "undefined") {
                 this.grafo[elKey] = [];
@@ -368,6 +381,13 @@ ElasticBuilder.prototype.buildList = function () {
 
                 $span.text(value);
                 $span.addClass("elastic-data");
+
+                // Scale height based on count
+                var minHeight = 26;
+                var maxHeight = 80;
+                var height = minHeight + (maxHeight - minHeight) * (count / maxCount); // linear
+                // var height = minHeight + (maxHeight - minHeight) * (Math.log(count + 1) / Math.log(maxCount + 1)); // logarithmic
+                $li.css("height", height + "px");
 
                 $li.append($badge);
                 $li.append($span);
